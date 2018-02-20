@@ -2,7 +2,7 @@
 A simple static generator written powered by python
 
 ### Usage
-"""
+```
 Usage:
   arco (new | n) -t <title> -g <category> -f <filename>
   arco (generate | g)
@@ -21,11 +21,11 @@ Options:
   -g <tag>            Specify the tag
   -t <title>          Specify the new page title
   -f <filename>       Specify the new page filename
-"""
+```
 
 ### TODO
-[] Custom Theme
-[] ...
+- Custom Theme
+- ...
 
 Thanks to [Simiki](https://github.com/tankywoo/simiki)
 CSS Theme from Simiki simple
