@@ -46,7 +46,7 @@ def load_md(file):
 
 def copy_theme():
     if not sys.platform == 'linux':
-        print('Windows not supported')
+        print('Windows not supported!\nPlease copy css folder manually.')
     else:
         os.system('cp -r  ./template/static/ ./output/')
 
