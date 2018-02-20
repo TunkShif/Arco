@@ -2,12 +2,18 @@
 # -*- coding:utf-8 -*-
 import os
 import sys
+import time
 import json
 import markdown
 
 
 def mkdir(path):
     os.makedirs(path)
+
+
+def get_time():
+    localtime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    return localtime
 
 
 def write_file(content, file):

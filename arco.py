@@ -5,12 +5,14 @@
 Usage:
   arco (new | n) -t <title> -g <category> -f <filename>
   arco (generate | g)
+  arco (deploy | d)
   arco -h | --help
   arco -v | --version
 
 Subcommands:
   new                 Create a new blank page
   generate            Generate pages
+  deploy              Deployment for github
 
 Options:
   -h, --help          Help information
@@ -22,6 +24,7 @@ Options:
 
 import utils
 import os
+import git
 from docopt import docopt
 
 
@@ -34,6 +37,7 @@ class Config(object):
         self.author = self.config_loader['author']
         self.year = self.config_loader['year']
         self.root = self.config_loader['root']
+        self.repo = self.config_loader['repo']
 
 
 class Generator(object):
@@ -94,17 +98,41 @@ class Generator(object):
         self.gen_page()
         utils.copy_theme()
 
-    def msg(parameter_list):
-        print("All Done!")
+
+class Deployer(object):
+    def __init__(self, config):
+        self.config = config
+        self.repo_url = self.config.repo
+        self.path = "./%s/" % self.config.output_path
+
+    def init_checkout(self):
+        if not os.path.isdir(self.path+'.git/'):
+            repo = git.Repo.init(self.path)
+            repo.create_remote('origin', self.repo_url)
+            print('Git repo inited!')
+        self.repo = git.Repo(self.path)
+        self.index = self.repo.index
+        self.origin = self.repo.remotes.origin
+
+    def deploy(self):
+        msg = "Updated "
+        msg += utils.get_time()
+        self.index.add('*')
+        self.index.commit(msg)
+        self.origin.push('master')
 
 
 if __name__ == "__main__":
-    args = docopt(__doc__, version='Arco 0.0.1')
+    args = docopt(__doc__, version='Arco 0.1')
     conf = Config()
     generator = Generator(conf)
     if args['new'] or args['n']:
         generator.gen_new(args['-t'], args['-g'], args['-f'])
-        generator.msg()
+        print("New markdown page created")
     if args['generate'] or args['g']:
         generator.gen()
-        generator.msg()
+        print("Pages generated")
+    if args['deploy'] or args['d']:
+        deployer = Deployer(conf)
+        deployer.init_checkout()
+        deployer.deploy()

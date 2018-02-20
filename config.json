@@ -1,8 +1,8 @@
 {
-    "url": "",
-    "title": "",
-    "author": "",
+    "url": "https://user.github.io/",
+    "title": "My Website",
+    "author": "user",
     "year": "2018",
-    "root": "/",
-    "repo": ""
+    "root": "/site/",
+    "repo": "https://github.com/user/repo.git"
 }
