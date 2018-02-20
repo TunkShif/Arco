@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 import os
+import sys
 import json
 import markdown
 
@@ -41,6 +42,13 @@ def load_md(file):
         tag = lines[1].split('Tag: ')[1].strip()
         content = ''.join(lines[3:])
         return title, tag, content
+
+
+def copy_theme():
+    if not sys.platform == 'linux':
+        print('Windows not supported')
+    else:
+        os.system('cp -r  ./template/static/ ./output/')
 
 
 def gen_html(src):

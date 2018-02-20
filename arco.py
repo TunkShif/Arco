@@ -64,7 +64,7 @@ class Generator(object):
         for tag, pages in tags.items():
             group.append('## '+tag)
             for page in pages:
-                link = r"/%s/%s.html" % (tag, page[0].split('.')[0])
+                link = r"%s%s/%s.html" % (root, tag, page[0].split('.')[0])
                 item = r"- [%s](%s)" % (page[1], link)
                 group.append(item)
         raw_links = '\n'.join(group)
@@ -92,6 +92,7 @@ class Generator(object):
     def gen(self):
         self.gen_index()
         self.gen_page()
+        utils.copy_theme()
 
     def msg(parameter_list):
         print("All Done!")
