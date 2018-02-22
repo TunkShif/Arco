@@ -23,6 +23,10 @@ Options:
   -f <filename>       Specify the new page filename
 ```
 
+### Requirements
+`markdown gitpython docopt`
+
+
 ### TODO
 - Custom Theme
 - ...
