@@ -38,6 +38,7 @@ class Config(object):
         self.year = self.config_loader['year']
         self.root = self.config_loader['root']
         self.repo = self.config_loader['repo']
+        self.url = self.config_loader['url']
 
 
 class Generator(object):
@@ -80,12 +81,13 @@ class Generator(object):
         root = self.config.root
         year = self.config.year
         author = self.config.author
+        url = self.config.url
         for md in os.listdir('md'):
             title, tag, raw_content = utils.load_md('md/'+md)
             file_name = md.split('.')[0]
             content = utils.gen_html(raw_content)
             html = utils.read_file('template/page.html')
-            html = html.format(title, root, root, content, year, author)
+            html = html.format(title, root, root, content, url, year, author)
             utils.write_file(html, r'output/%s/%s.html' % (tag, file_name))
 
     def gen_new(self, title, tag, name):

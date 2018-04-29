@@ -147,6 +147,14 @@ pre code {
     text-align: center;
 }
 
+#index {
+  display: block;
+  color: grey;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
 #footer p {
     margin: 10px auto;
     font-size: 85%;
