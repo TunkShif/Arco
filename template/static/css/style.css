@@ -14,10 +14,10 @@ body {
     color: #2f2f2f;
 }
 
-a { color: #0645ad; text-decoration: none; }
-a:visited { color: #0645ad; }
-a:hover { color: #06e; }
-a:active { color: #06e; }
+a { color: grey; text-decoration: none; }
+a:visited { color: #2f2f2f; }
+a:hover { color: lightgrey; }
+a:active { color: grey; }
 
 p { margin: 0 0 1.5em 0; text-align: justify; }
 
