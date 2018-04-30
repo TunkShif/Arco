@@ -1,5 +1,6 @@
 # Arco
-A simple static generator written in python
+A simple static generator written in python.
+[Preview](https://tunkshif.github.io/)
 
 ### Usage
 ```
@@ -31,5 +32,6 @@ Options:
 - Custom Theme
 - ...
 
-Thanks to [Simiki](https://github.com/tankywoo/simiki)
-CSS Theme from Simiki simple
+**Thanks to [Simiki](https://github.com/tankywoo/simiki)
+CSS Theme from Simiki simple**
+
