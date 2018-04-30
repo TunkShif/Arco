@@ -1,5 +1,5 @@
 # Arco
-A simple static generator written powered by python
+A simple static generator written in python
 
 ### Usage
 ```
