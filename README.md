@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 # Arco[WIP]
 A simple static generator written powered by python
 =======
-# Arco
-A simple static generator written in python.
-[Preview](https://tunkshif.github.io/)
->>>>>>> abe5f256947faeaa05760ec932802d3e10843d12
-
 ### Usage
 ```
 Usage:
