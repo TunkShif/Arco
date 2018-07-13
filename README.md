@@ -1,4 +1,4 @@
-# Arco
+# Arco[WIP]
 A simple static generator written powered by python
 
 ### Usage
