@@ -23,8 +23,6 @@ Options:
 import os
 import json
 import markdown
-import time
-import git
 from docopt import docopt
 
 
@@ -57,10 +55,6 @@ class Utils(object):
                 'markdown.extensions.footnotes']
         html = markdown.markdown(src, extensions=exts)
         return html
-
-    def get_time():
-        localtime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        return localtime
 
 
 class Arco(object):
@@ -140,29 +134,6 @@ class Arco(object):
         print('INFO: File index.html generated!')
 
 
-class Deployer(object):
-    def __init__(self, config):
-        self.config = config
-        self.repo_url = self.config.repo
-        self.path = "./%s/" % self.config.output_path
-
-    def init_checkout(self):
-        if not os.path.isdir(self.path+'.git/'):
-            repo = git.Repo.init(self.path)
-            repo.create_remote('origin', self.repo_url)
-            print('Git repo inited!')
-        self.repo = git.Repo(self.path)
-        self.index = self.repo.index
-        self.origin = self.repo.remotes.origin
-
-    def deploy(self):
-        msg = "Updated "
-        msg += utils.get_time()
-        self.index.add('*')
-        self.index.commit(msg)
-        self.origin.push('master')
-
-
 if __name__ == "__main__":
     args = docopt(__doc__, version='Arco b0.2')
     utils = Utils()
@@ -172,7 +143,4 @@ if __name__ == "__main__":
     if args['generate'] or args['g']:
         arco.gen_page()
         arco.gen_index()
-    # if args['deploy'] or args['d']:
-    #     deployer = Deployer(conf)
-    #     deployer.init_checkout()
-    #     deployer.deploy()
+        os.system('cp -r ./template/static/ ./blog/')
