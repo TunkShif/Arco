@@ -1,10 +1,13 @@
-# Arco
-A simple static generator written powered by python
+Arco
 =======
+
+A simple static site generator written in python
 
 ### Requirements
 `markdown docopt`
 
 ### Thanks
-**Thanks to [Simiki](https://github.com/tankywoo/simiki)
-CSS Theme from Simiki simple**
+Thanks to [Simiki](https://github.com/tankywoo/simiki)
+
+CSS Theme forked from **Simiki simple**
+
